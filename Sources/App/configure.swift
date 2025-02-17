@@ -11,4 +11,5 @@ public func configure(_ app: Application) async throws {
     //try routes(app)
     
     try app.register(collection: MetaController())
+    try app.register(collection: OperationsController())
 }
