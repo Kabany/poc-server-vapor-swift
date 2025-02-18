@@ -23,6 +23,7 @@ let package = Package(
                 .product(name: "NIOCore", package: "swift-nio"),
                 .product(name: "NIOPosix", package: "swift-nio"),
                 .product(name: "JWTKit", package: "jwt-kit"),
+                .product(name: "SwiftOTP", package: "SwiftOTP")
             ],
             swiftSettings: swiftSettings
         ),

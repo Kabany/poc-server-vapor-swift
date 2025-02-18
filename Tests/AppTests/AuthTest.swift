@@ -29,4 +29,11 @@ final class AuthTest: XCTestCase {
         let hash = authService.createHash(message)
         XCTAssertEqual("861844d6704e8573fec34d967e20bcfef3d424cf48be04e6dc08f2bd58c729743371015ead891cc3cf1c9d34b49264b510751b1ff9e537937bc46b5d6ff4ecc8", hash)
     }
+    
+    func testShouldCreateTotp() {
+        let message = "JBSWY3DPEHPK3PXP"
+        let token = authService.createTotp(message)
+        let token2 = authService.createTotp(message)
+        XCTAssertEqual(token, token2)
+    }
 }

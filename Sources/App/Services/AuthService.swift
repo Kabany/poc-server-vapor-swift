@@ -1,5 +1,6 @@
 import Vapor
 import JWTKit
+import SwiftOTP
 
 struct AuthService {
     
@@ -27,8 +28,9 @@ struct AuthService {
     }
     
     func createTotp(_ text: String) -> String {
-        //let totp = TOTP(secret: text, digits: 8, timeInterval: 30, algorithm: .sha512)
-        return ""
+        let key = base32DecodeToData(text)!
+        let totp = TOTP(secret: key, digits: 8, timeInterval: 30, algorithm: .sha512)
+        return totp?.generate(time: Date()) ?? ""
     }
 }
 

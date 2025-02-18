@@ -3,16 +3,16 @@ import Vapor
 struct OperationsController: RouteCollection {
     
     func boot (routes: Vapor.RoutesBuilder) throws {
-        let meta = routes.grouped("operations")
-        meta.group("list") { metaList in
-            metaList.group("params") { params in
+        let operations = routes.grouped("operations")
+        operations.group("list") { operationsList in
+            operationsList.group("params") { params in
                 params.get(":times", use: sendListWithParams)
             }
-            metaList.get("query", use: sendListWithQuery)
-            metaList.post("body", use: sendListWithBody)
-            metaList.get("headers", use: sendListWithHeaders)
+            operationsList.get("query", use: sendListWithQuery)
+            operationsList.post("body", use: sendListWithBody)
+            operationsList.get("headers", use: sendListWithHeaders)
         }
-        meta.group("fibonacci") { fib in
+        operations.group("fibonacci") { fib in
             fib.group("sum") { fibSum in
                 fibSum.get(":number", use: sendFibonacciSum)
             }
