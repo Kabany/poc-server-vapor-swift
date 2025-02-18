@@ -2,6 +2,7 @@ import Vapor
 
 let responseService = ResponseService()
 let operationsService = OperationsService()
+let authService = AuthService()
 
 // configures your application
 public func configure(_ app: Application) async throws {
