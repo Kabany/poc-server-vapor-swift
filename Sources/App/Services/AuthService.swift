@@ -4,7 +4,7 @@ import SwiftOTP
 
 struct AuthService {
     
-    private let FIRST_JWT_SECRET = "ThisIsASuperSecret"
+    private let FIRST_JWT_SECRET = "ThisIsAVeryLongStringToAlignWithTheIDX10720RequirementForDotNetWebApps"
     
     func createJwtToken(_ text: String) async throws -> String {
         let keys = JWTKeyCollection()
